@@ -20,8 +20,8 @@ Route::get('/v1/cars', function (Request $request) {
     echo $request;
     return response()->json(['cars' => [
         'registration' => 'ABC001',
-        "dateRegistered" => '2019-01-01',
+        'dateRegistered' => '2019-01-01',
         'color' => 'black', 'make' => 'tesla',
-        'model' => 's'
+        'model' => 's',
     ]], 200);
 });
