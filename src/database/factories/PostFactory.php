@@ -2,7 +2,7 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\User;
+use App\Post;
 use Faker\Generator as Faker;
 
 /*
@@ -16,15 +16,14 @@ use Faker\Generator as Faker;
 |
  */
 
-$factory->define(User::class, function (Faker $faker) {
+$factory->define(Post::class, function (Faker $faker) {
     return [
-        'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'email_verified_at' => now(),
-        'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-        'contact_number' => $faker->phoneNumber,
-        'email_verified_at' => now(),
-        'status' => 'ACTIVE',
+        'title' => $faker->name,
+        'description' => $faker->name,
         'images' => $faker->randomAscii,
+        'location' => $faker->randomAscii,
+        'offer_start' => now(),
+        'offer_end' => now()->addDays(100),
+        'post_status' => $faker->randomElement(['ACTIVE', 'INACTIVE']),
     ];
 });
