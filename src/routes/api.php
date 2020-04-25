@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Resources\Post as PostResource;
+use App\Http\Resources\PostCollection as PostCollection;
+use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -30,4 +33,12 @@ Route::get('/v1/cars', function (Request $request) {
         'color' => 'black', 'make' => 'tesla',
         'model' => 's',
     ]], 200);
+});
+
+Route::get('/post/{post}', function ($postId) {
+    return new PostResource(Post::find($postId));
+});
+
+Route::get('/posts', function () {
+    return new PostCollection((Post::all()));
 });
