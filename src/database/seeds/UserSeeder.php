@@ -1,9 +1,8 @@
 <?php
 
+use Faker\Factory;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
 
 class UserSeeder extends Seeder
 {
@@ -14,15 +13,14 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker\Factory::create('en_US');
+        $faker = Factory::create('en_US');
         DB::table('users')->insert([
             'name' => $faker->name,
-            'email' => Str::random(12) . '@gmail.com',
-            'password' => Hash::make('password'),
+            'email' => $faker->email,
+            'password' => $faker->password(5, 10),
             'contact_number' => $faker->phoneNumber,
             'email_verified_at' => now(),
             'status' => 'ACTIVE',
-            'images' => 0,
         ]);
         /*factory(App\User::class, 3)
     ->create()
