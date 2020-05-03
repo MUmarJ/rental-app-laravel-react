@@ -1,0 +1,209 @@
+{
+	"info": {
+		"_postman_id": "8e3908e0-007b-4152-b48d-97a0e6d99a92",
+		"name": "RentalApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Posts",
+			"item": [
+				{
+					"name": "getPostWithId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/posts/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"posts",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPosts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/posts/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"posts",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createPost",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "63b64095-ba8b-49ca-8d66-ee1bebfc1968",
+								"exec": [
+									"const dateStart = new Date();",
+									"const dateEnd = dateStart.setDate(dateStart.getDate() + 10);",
+									"",
+									"const body = {",
+									"    user_id:2,",
+									"    category_id:3,",
+									"\ttitle:\"Postman Request\",",
+									"\tdescription:\"Postmaning a Request\",",
+									"\toffer_start:dateStart,",
+									"\toffer_end:dateEnd",
+									"};",
+									"",
+									"pm.globals.set(\"body\",JSON.stringify(body));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{body}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/posts/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"posts",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "editPost",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "e262ab4c-4dca-4335-a601-0f4b09e76494",
+								"exec": [
+									"const dateStart = new Date();",
+									"const dateEnd = dateStart.setDate(dateStart.getDate() + 15);",
+									"",
+									"const body = {",
+									"    category_id:4,",
+									"\ttitle:\"Postman EDITOS1\",",
+									"\tdescription:\"POST MANNER\",",
+									"\toffer_start:dateStart,",
+									"\toffer_end:dateEnd,",
+									"\tpost_status:'INACTIVE'",
+									"};",
+									"",
+									"pm.globals.set(\"body\",JSON.stringify(body));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{body}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/posts/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"posts",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPostOwner",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/posts/13/poster",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"posts",
+								"13",
+								"poster"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deactivatePost",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/posts/13/deactivate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"posts",
+								"13",
+								"deactivate"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	]
+}
