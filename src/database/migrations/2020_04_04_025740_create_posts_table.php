@@ -15,15 +15,15 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
-            $table->integer('category_id');
+            $table->integer('user_id')->unsigned()->default('1');
+            $table->integer('category_id')->default('1');
             $table->string('title', 1024);
             $table->string('description', 10240);
-            $table->string('images');
-            $table->string('location');
-            $table->dateTime('offer_start');
-            $table->dateTime('offer_end');
-            $table->string('post_status');
+            $table->string('images')->nullable();
+            $table->string('location')->nullable();
+            $table->dateTime('offer_start')->useCurrent();
+            $table->dateTime('offer_end')->useCurrent();
+            $table->string('post_status')->default('ACTIVE');
             $table->timestamps();
         });
     }
