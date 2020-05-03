@@ -15,7 +15,7 @@ class Post extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'title', 'description', 'images',
+        'title', 'description', 'images', 'offer_start', 'offer_end',
     ];
 
     /**
@@ -37,4 +37,10 @@ class Post extends Authenticatable
         'created_at' => 'timestamp',
         'updated_at' => 'timestamp',
     ];
+
+    // One To Many (inverse) posts relation with user
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }
