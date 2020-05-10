@@ -21,6 +21,7 @@ class UserSeeder extends Seeder
             'contact_number' => $faker->phoneNumber,
             'email_verified_at' => now(),
             'status' => 'ACTIVE',
+            'role' => 'vendor',
         ]);
         /*factory(App\User::class, 3)
     ->create()
