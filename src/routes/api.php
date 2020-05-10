@@ -14,10 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
 Route::get('/', function () {
     return view('welcome');
 });
@@ -33,9 +29,20 @@ Route::get('/v1/cars', function (Request $request) {
 });
 
 //Post routes
-Route::get('/posts', 'PostController@index');
-Route::post('/posts', 'PostController@create');
-Route::get('/posts/{photo}', 'PostController@show');
-Route::put('/posts/{id}', 'PostController@edit');
-Route::get('/posts/{id}/poster', 'PostController@poster');
-Route::put('/posts/{id}/deactivate', 'PostController@deactivate');
+Route::get('posts', 'PostController@index');
+Route::post('posts', 'PostController@create');
+Route::get('posts/{photo}', 'PostController@show');
+Route::put('posts/{id}', 'PostController@edit');
+Route::get('posts/{id}/poster', 'PostController@poster');
+Route::put('posts/{id}/deactivate', 'PostController@deactivate');
+
+//Auth routes
+Route::get('/unauthorized', 'UserController@unauthorized');
+Route::post('register', 'UserController@register');
+Route::post('login', 'UserController@login');
+
+Route::group(['middleware' => ['CheckClientCredentials', 'auth:api']]
+    , function () {
+        Route::post('logout', 'UserController@logout');
+        Route::post('user', 'UserController@user');
+    });

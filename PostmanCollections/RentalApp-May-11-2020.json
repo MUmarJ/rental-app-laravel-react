@@ -1,0 +1,440 @@
+{
+	"info": {
+		"_postman_id": "8e3908e0-007b-4152-b48d-97a0e6d99a92",
+		"name": "RentalApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Posts",
+			"item": [
+				{
+					"name": "getPostWithId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/posts/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"posts",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPosts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/posts/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"posts",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createPost",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "63b64095-ba8b-49ca-8d66-ee1bebfc1968",
+								"exec": [
+									"const dateStart = new Date();",
+									"const dateEnd = dateStart.setDate(dateStart.getDate() + 10);",
+									"",
+									"const body = {",
+									"    user_id:2,",
+									"    category_id:3,",
+									"\ttitle:\"Postman Request\",",
+									"\tdescription:\"Postmaning a Request\",",
+									"\toffer_start:dateStart,",
+									"\toffer_end:dateEnd",
+									"};",
+									"",
+									"pm.globals.set(\"body\",JSON.stringify(body));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{body}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/posts/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"posts",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "editPost",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "e262ab4c-4dca-4335-a601-0f4b09e76494",
+								"exec": [
+									"const dateStart = new Date();",
+									"const dateEnd = dateStart.setDate(dateStart.getDate() + 15);",
+									"",
+									"const body = {",
+									"    category_id:4,",
+									"\ttitle:\"Postman EDITOS1\",",
+									"\tdescription:\"POST MANNER\",",
+									"\toffer_start:dateStart,",
+									"\toffer_end:dateEnd,",
+									"\tpost_status:'INACTIVE'",
+									"};",
+									"",
+									"pm.globals.set(\"body\",JSON.stringify(body));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{body}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/posts/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"posts",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPostOwner",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/posts/13/poster",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"posts",
+								"13",
+								"poster"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deactivatePost",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/posts/13/deactivate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"posts",
+								"13",
+								"deactivate"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "4166a8cc-b256-410b-b7c5-433a819387e4",
+								"exec": [
+									"const dateStart = new Date();",
+									"const dateEnd = dateStart.setDate(dateStart.getDate() + 10);",
+									"",
+									"const body = {",
+									"    name: \"YouMar\",",
+									"    email: \"umar@hello.com\",",
+									"    password: \"sugoi!\",",
+									"    password_confirmation: \"sugoi!\",",
+									"    role: \"vendor\",",
+									"    remember_token:true",
+									"};",
+									"",
+									"pm.globals.set(\"body\", JSON.stringify(body));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{body}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "9586477c-f7c0-4030-9970-b9b118be2725",
+								"exec": [
+									"const dateStart = new Date();",
+									"const dateEnd = dateStart.setDate(dateStart.getDate() + 10);",
+									"",
+									"const body = {",
+									"    email: \"umar@hello.com\",",
+									"    password: \"sugoi!\",",
+									"    remember_me: true,",
+									"};",
+									"",
+									"pm.globals.set(\"body\", JSON.stringify(body));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{body}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "9a615390-290f-4752-9330-55ccfc2fbfa7",
+								"exec": [
+									"const dateStart = new Date();",
+									"const dateEnd = dateStart.setDate(dateStart.getDate() + 10);",
+									"",
+									"const body = {",
+									"    email: \"umar@hello.com\",",
+									"    password: \"sugoi!\",",
+									"};",
+									"",
+									"pm.globals.set(\"body\", JSON.stringify(body));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYTE5NjIxYmVkZDQwZTYzOGFkOTQwZjExYzAxYTE0NTJlNzQ3NGYyZTlkMGI1ZDBlM2JkYjVhYTM1ZGU5MjcwNzNkMzEzMjkwZTFmMzBjNmQiLCJpYXQiOjE1ODkxMzYxMzcsIm5iZiI6MTU4OTEzNjEzNywiZXhwIjoxNTkxODE0NTM3LCJzdWIiOiIxOCIsInNjb3BlcyI6W119.ZBPnAn3De2dWMo68WOWisVCfK1URpfAKdehtLcGiY3w39tNaMLO5_GuGUPdbtStFui6gKwOVC5F5gwuFhxen-NfUbD3tRSJ9fske9xTqPgT_tOxQYe9cY0K9qPHwWxjmJbSVH7QQx1eEiGiZWnU5tO8Y0at6LyOi4khr614BR4ansVzSI_6hpj2_mxy9ur6LazQ1lITIXS8jakWS9UoGCE5GJgzBhUoCcdAxrtDdMhD71wpxxbOO3wGDb2F5aV2FxHOnxEu340xWAHAva0NZvMGgfXxj4DHCeXPLYgomcnOSno813UMwWp2hVbUoVjAPHEjly8ws2ZWtTFqjx_tU5rzZ-iYWUgIlGb4HsI7TVrtV58_abQF7StSMvVCyugIbGp4tywAHXwkf81l9IXpm_BBsUDfShxQQv-vSdIqHK62Ymy-jExhgbNyep3j-lGs4g8G_qa-A2olievbtU3rJ7MBkJylzBsr_sDzHw7gv1m2TW0oURfDU1JAwUhg6JGAoBwUgrDjJWdk-CwCWGVt1bXuYSBUeHUwWEds3BPRN7_muiYEQbPXuyOtnIAXXsLCq75gI5fcZndCmnpLUlOOVOflkWnWso-_IWdn0IBGq-aLHksi87FoNFjhjzTysEf-4qW2M3odjRWW6yY5wmZQKYYQpgtgC5rwYQ5WEasBIddY",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{{body}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Details",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "bf8f4be2-7aae-4b59-a534-7c8963befa45",
+								"exec": [
+									"const dateStart = new Date();",
+									"const dateEnd = dateStart.setDate(dateStart.getDate() + 10);",
+									"",
+									"const body = {",
+									"    email: \"umar@hello.com\",",
+									"    password: \"sugoi!\",",
+									"};",
+									"",
+									"pm.globals.set(\"body\", JSON.stringify(body));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMGE0YmVmYjA0MTE2ZWRjOTExNWRiYmQzZmU2MzQ5YWIyNDA5ZjdmMWIzNDNlMWUxOTEzNzBkZWNmYjcwMmNlYmIwOGQ5NWNiZTQzNjJhMWQiLCJpYXQiOjE1ODkxMzYxNzAsIm5iZiI6MTU4OTEzNjE3MCwiZXhwIjoxNTkxODE0NTcwLCJzdWIiOiIxOCIsInNjb3BlcyI6W119.utuyu-TLcoIGsmAlc_alDGLpS63Omt09cj5yPJM7JaU_vE4BRU6EZtmFrg62aVCNNcd5wDJU1o8K74MrgLSN3SAd4y1Ng6J6zaxTIRG8gnmsqu_4eJjZheUu904SdWjzhX9WMKIzWoSBzmgTIEVkf53FDcxUzttTmwa_w1TOjifxIQGiBvDP4SuM3DXppURyitHNcGXzP3ABUMdXw8vtP-kTBaNlN7HOIV46Kt9nOq01kX3d0NpcPYg1UnY0G3-G-GWxb6BViM46HP1CAjM5ix2Z9axer7EXGQrossZTvm1TKbCUskCBcY3BlBotNDdPfxSy7o_CYmu22OVHLGqvPAcEH-EilRcUSUXxRxHSzii0tRdzthm2pG2nzq_Ep_kcWIaL8z7jEgipaU6fXoraRpiaU1-Zwup7gBDQnZDts5QHHJD2FbPCiQ5JUMgzhjo0pv60M03AmwLbifGQbWueTsvdp-2Lly11YED9sqaahhx1OcEG2Bhd7FMLoinEFToVhX0PZ0K1fgSwkzbFxs-HXk0mpZ36d0ZSB_QY6bWmj926HEZalSmByogYRrZhY4gtMBjPnHVdHGVpsclCg8FAo_LgvtgiZl6viZjVY5b5W0LA7z0GrBqmZ9Vfcot2OiaLs7zca7MTAxjLzK1NB4eMBl1-k3gJT62uPTU7c2s6L50",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{{body}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	]
+}
