@@ -18,6 +18,7 @@ class PostSeeder extends Seeder
             'title' => $faker->name,
             'description' => $faker->sentence,
             'post_status' => 'ACTIVE',
+            'category_id' => $faker->randomElement([1, 2]),
         ]);
     }
 }
