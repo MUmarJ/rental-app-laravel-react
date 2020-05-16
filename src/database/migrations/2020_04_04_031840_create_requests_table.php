@@ -17,7 +17,7 @@ class CreateRequestsTable extends Migration
             $table->id();
             $table->integer('post_id');
             $table->integer('user_id');
-            $table->string('request_status');
+            $table->string('status');
             $table->timestamps();
         });
     }
