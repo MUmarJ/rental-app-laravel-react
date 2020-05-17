@@ -4,7 +4,7 @@ use Faker\Factory;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class PostSeeder extends Seeder
+class NotificationSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,11 +14,13 @@ class PostSeeder extends Seeder
     public function run()
     {
         $faker = Factory::create('en_US');
-        DB::table('posts')->insert([
+        DB::table('notifications')->insert([
+            'post_id' => $faker->randomElement([1, 2]),
+            'user_id' => $faker->randomElement([1, 2]),
+            'request_id' => $faker->randomElement([1, 2]),
             'title' => $faker->name,
             'description' => $faker->sentence,
-            'post_status' => 'ACTIVE',
-            'category_id' => $faker->randomElement([1, 2]),
+            'seen' => $faker->randomElement([true, false]),
         ]);
     }
 }

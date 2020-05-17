@@ -56,6 +56,7 @@ class PostController extends Controller
             $post->category_id = $request->category_id ? $request->category_id : 1;
             $post->title = $request->title;
             $post->description = $request->description;
+            $post->images = $request->images ? $request->images : null;
             $post->offer_start = $request->offer_start;
             $post->offer_end = $request->offer_end;
             $post->post_status = $request->post_status;
@@ -67,10 +68,23 @@ class PostController extends Controller
             return response($th, 500);
         }
     }
+    public function offerReceived($id)
+    {
+        //TODO Create Request with status OPEN -> Create notification
+    }
+
+    // If poster checking is needed*
     public function poster($id)
     {
         $post = Post::findOrFail($id);
-        return response($post->user->name, 200);
+        return response($post->user, 200);
+    }
+
+    // If category checking is needed*
+    public function category($id)
+    {
+        $post = Post::findOrFail($id);
+        return response($post->category, 200);
     }
 
     public function deactivate($id)

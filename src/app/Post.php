@@ -43,4 +43,10 @@ class Post extends Authenticatable
     {
         return $this->belongsTo('App\User');
     }
+
+    // One To Many (inverse) posts relation with categories
+    public function category()
+    {
+        return $this->belongsTo('App\Categories', 'category_id');
+    }
 }
