@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Notifications;
+namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class PostChange extends Authenticatable
+class Notification extends Authenticatable
 {
     /**
      * The attributes that are mass assignable.

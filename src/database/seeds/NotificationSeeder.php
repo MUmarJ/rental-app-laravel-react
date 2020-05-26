@@ -17,7 +17,7 @@ class NotificationSeeder extends Seeder
         DB::table('notifications')->insert([
             'post_id' => $faker->randomElement([1, 2]),
             'user_id' => $faker->randomElement([1, 2]),
-            'request_id' => $faker->randomElement([1, 2]),
+            'offer_id' => $faker->randomElement([1, 2]),
             'title' => $faker->name,
             'description' => $faker->sentence,
             'seen' => $faker->randomElement([true, false]),
