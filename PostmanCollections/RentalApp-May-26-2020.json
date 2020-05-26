@@ -1,0 +1,1002 @@
+{
+	"info": {
+		"_postman_id": "8e3908e0-007b-4152-b48d-97a0e6d99a92",
+		"name": "RentalApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "4166a8cc-b256-410b-b7c5-433a819387e4",
+								"exec": [
+									"const dateStart = new Date();",
+									"const dateEnd = dateStart.setDate(dateStart.getDate() + 10);",
+									"",
+									"const body = {",
+									"    name: \"YouMar\",",
+									"    email: \"umar@hello.com\",",
+									"    password: \"sugoi!\",",
+									"    password_confirmation: \"sugoi!\",",
+									"    role: \"vendor\",",
+									"    remember_token:true",
+									"};",
+									"",
+									"pm.globals.set(\"body\", JSON.stringify(body));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{body}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register User2",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "0cd4a8a9-9509-44cc-9ca3-3852c99a97a6",
+								"exec": [
+									"const dateStart = new Date();",
+									"const dateEnd = dateStart.setDate(dateStart.getDate() + 10);",
+									"",
+									"const body = {",
+									"    name: \"Winne The Pooh\",",
+									"    email: \"nest@rabbitstree.com\",",
+									"    password: \"honey1337\",",
+									"    password_confirmation: \"honey1337\",",
+									"    role: \"vendor\",",
+									"    remember_token: true",
+									"};",
+									"",
+									"pm.globals.set(\"body\", JSON.stringify(body));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{body}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "9586477c-f7c0-4030-9970-b9b118be2725",
+								"exec": [
+									"const dateStart = new Date();",
+									"const dateEnd = dateStart.setDate(dateStart.getDate() + 10);",
+									"",
+									"const body = {",
+									"    email: \"umar@hello.com\",",
+									"    password: \"sugoi!\",",
+									"    remember_me: true,",
+									"};",
+									"",
+									"pm.globals.set(\"body\", JSON.stringify(body));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{body}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login User2",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "a9a9985b-f383-4047-927c-0612f3d687c8",
+								"exec": [
+									"const dateStart = new Date();",
+									"const dateEnd = dateStart.setDate(dateStart.getDate() + 10);",
+									"",
+									"const body = {",
+									"     email: \"nest@rabbitstree.com\",",
+									"    password: \"honey1337\",",
+									"    remember_me: true,",
+									"};",
+									"",
+									"pm.globals.set(\"body\", JSON.stringify(body));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{body}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "9a615390-290f-4752-9330-55ccfc2fbfa7",
+								"exec": [
+									"const dateStart = new Date();",
+									"const dateEnd = dateStart.setDate(dateStart.getDate() + 10);",
+									"",
+									"const body = {",
+									"    email: \"umar@hello.com\",",
+									"    password: \"sugoi!\",",
+									"};",
+									"",
+									"pm.globals.set(\"body\", JSON.stringify(body));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{TOKEN}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{{body}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/logout",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Details",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "bf8f4be2-7aae-4b59-a534-7c8963befa45",
+								"exec": [
+									"const dateStart = new Date();",
+									"const dateEnd = dateStart.setDate(dateStart.getDate() + 10);",
+									"",
+									"const body = {",
+									"    email: \"umar@hello.com\",",
+									"    password: \"sugoi!\",",
+									"};",
+									"",
+									"pm.globals.set(\"body\", JSON.stringify(body));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{TOKEN}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{{body}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Posts",
+			"item": [
+				{
+					"name": "getPostWithId",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{TOKEN}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/posts/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"posts",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPosts",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{TOKEN}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/posts/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"posts",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPostsCategory",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{TOKEN}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/posts/1/category",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"posts",
+								"1",
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createPost",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "63b64095-ba8b-49ca-8d66-ee1bebfc1968",
+								"exec": [
+									"const dateStart = new Date();",
+									"const dateEnd = dateStart.setDate(dateStart.getDate() + 10);",
+									"",
+									"const body = {",
+									"    user_id:2,",
+									"    category_id:3,",
+									"\ttitle:\"Postman Request\",",
+									"\tdescription:\"Postmaning a Request\",",
+									"\toffer_start:dateStart,",
+									"\toffer_end:dateEnd",
+									"};",
+									"",
+									"pm.globals.set(\"body\",JSON.stringify(body));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{TOKEN}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{{body}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/posts/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"posts",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "editPost",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "e262ab4c-4dca-4335-a601-0f4b09e76494",
+								"exec": [
+									"const dateStart = new Date();",
+									"const dateEnd = dateStart.setDate(dateStart.getDate() + 15);",
+									"",
+									"const body = {",
+									"    category_id:4,",
+									"\ttitle:\"Postman EDITOS1\",",
+									"\tdescription:\"POST MANNER\",",
+									"\toffer_start:dateStart,",
+									"\toffer_end:dateEnd,",
+									"\tpost_status:'INACTIVE'",
+									"};",
+									"",
+									"pm.globals.set(\"body\",JSON.stringify(body));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{TOKEN}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{{body}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/posts/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"posts",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPostOwner",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{TOKEN}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/posts/2/poster",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"posts",
+								"2",
+								"poster"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deactivatePost",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{TOKEN}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/posts/13/deactivate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"posts",
+								"13",
+								"deactivate"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Offers",
+			"item": [
+				{
+					"name": "createOffer",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "4eeb6c74-79cc-4530-8c98-b2afa9d7185b",
+								"exec": [
+									"const dateStart = new Date();\r",
+									"const dateEnd = dateStart.setDate(dateStart.getDate() + 10);\r",
+									"\r",
+									"const body = {};\r",
+									"\r",
+									"pm.globals.set(\"body\", JSON.stringify(body));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{TOKEN}}"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{{body}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/posts/14/create-offer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"posts",
+								"14",
+								"create-offer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "closeOffer",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "2d4046c7-4881-47f5-8944-a9353a3d3cdb",
+								"exec": [
+									"const dateStart = new Date();\r",
+									"const dateEnd = dateStart.setDate(dateStart.getDate() + 10);\r",
+									"\r",
+									"const body = {};\r",
+									"\r",
+									"pm.globals.set(\"body\", JSON.stringify(body));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{TOKEN}}"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{{body}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/posts/14/close-offer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"posts",
+								"14",
+								"close-offer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "completeOffer",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "1795c399-1d21-4b3c-be1b-fdf79d537a35",
+								"exec": [
+									"const dateStart = new Date();\r",
+									"const dateEnd = dateStart.setDate(dateStart.getDate() + 10);\r",
+									"\r",
+									"const body = {};\r",
+									"\r",
+									"pm.globals.set(\"body\", JSON.stringify(body));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{TOKEN}}"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{{body}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/posts/14/complete-offer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"posts",
+								"14",
+								"complete-offer"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Notifications",
+			"item": [
+				{
+					"name": "createOffer",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "a6d276d4-0972-4229-9d8e-b8a08e973f43",
+								"exec": [
+									"const dateStart = new Date();\r",
+									"const dateEnd = dateStart.setDate(dateStart.getDate() + 10);\r",
+									"\r",
+									"const body = {};\r",
+									"\r",
+									"pm.globals.set(\"body\", JSON.stringify(body));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{TOKEN}}"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{{body}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/posts/11/notify-received",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"posts",
+								"11",
+								"notify-received"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "closeOffer",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "d75a2d9a-4211-43b2-9378-57c0104859d3",
+								"exec": [
+									"const dateStart = new Date();\r",
+									"const dateEnd = dateStart.setDate(dateStart.getDate() + 10);\r",
+									"\r",
+									"const body = {};\r",
+									"\r",
+									"pm.globals.set(\"body\", JSON.stringify(body));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{TOKEN}}"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{{body}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/posts/8/close-offer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"posts",
+								"8",
+								"close-offer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "completeOffer",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "462e9cd9-8a13-4831-8fbc-b40311bfe844",
+								"exec": [
+									"const dateStart = new Date();\r",
+									"const dateEnd = dateStart.setDate(dateStart.getDate() + 10);\r",
+									"\r",
+									"const body = {};\r",
+									"\r",
+									"pm.globals.set(\"body\", JSON.stringify(body));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{TOKEN}}"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{{body}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/posts/9/complete-offer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"posts",
+								"9",
+								"complete-offer"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	]
+}
