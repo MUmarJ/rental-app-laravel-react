@@ -3,44 +3,82 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Notifications;
+use App\Notification;
 use Illuminate\Http\Request;
 
-class PostController extends Controller
+class NotificationController extends Controller
 {
-    public function create(Request $request)
+    public function create(Request $request, $post_id, $user_id, $offer_id)
     {
         try {
-            $notification = new Notifications\PostChange;
+            $notification = new Notification;
 
-            $notification->user_id = $request->user_id ? $request->user_id : 1;
-            $notification->post_id = $request->post_id ? $request->post_id : 1;
+            $notification->post_id = $post_id ? $post_id : 1;
+            $notification->user_id = $user_id ? $user_id : 1;
+            $notification->offer_id = $offer_id ? $offer_id : 1;
+
             $notification->title = $request->title;
             $notification->description = $request->description;
             $notification->image = $request->image;
 
             $notification->save();
 
-            return response('Success', 200);
+            return $notification;
 
         } catch (\Throwable $th) {
             return response($th, 500);
         }
     }
-
-    // If category checking is needed*
-    public function category($id)
+    public function offerReceived(Request $request, $post_id, $user_id, $offer_id)
     {
-        $post = Post::findOrFail($id);
-        return response($post->category->name, 200);
-        // return response($post);
+        try {
+            $request->title = 'New offer received';
+            $request->description = 'You received an offer on ' . now()->toDateTimeString();
+
+            $notification = $this->create($request, $post_id, $user_id, $offer_id);
+
+            return $notification;
+
+        } catch (\Throwable $th) {
+            return response($th, 500);
+        }
     }
-
-    public function deactivate($id)
+    public function offerClose($post_id, $user_id, $offer_id)
     {
-        return new PostResource(
-            Post::findOrFail($id)
-                ->update(['post_status' => 'INACTIVE'])
-        );
+        try {
+            $notification = Notification::where('user_id', $user_id)
+                ->where('post_id', $post_id)
+                ->where('offer_id', $offer_id)
+                ->get()->first();
+
+            $notification->title = 'Offer closed';
+            $notification->description = 'This offer was closed on ' . now()->toDateTimeString();
+
+            $notification->save();
+
+            return $notification;
+
+        } catch (\Throwable $th) {
+            return response($th, 500);
+        }
+    }
+    public function offerComplete($post_id, $user_id, $offer_id)
+    {
+        try {
+            $notification = Notification::where('user_id', $user_id)
+                ->where('post_id', $post_id)
+                ->where('offer_id', $offer_id)
+                ->get()->first();
+
+            $notification->title = 'Offer Completed';
+            $notification->description = 'This offer was completed on ' . now()->toDateTimeString();
+
+            $notification->save();
+
+            return $notification;
+
+        } catch (\Throwable $th) {
+            return response($th, 500);
+        }
     }
 }
