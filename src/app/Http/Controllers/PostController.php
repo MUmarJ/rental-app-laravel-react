@@ -68,10 +68,6 @@ class PostController extends Controller
             return response($th, 500);
         }
     }
-    public function offerReceived($id)
-    {
-        //TODO Create Request with status OPEN -> Create notification
-    }
 
     // If poster checking is needed*
     public function poster($id)
